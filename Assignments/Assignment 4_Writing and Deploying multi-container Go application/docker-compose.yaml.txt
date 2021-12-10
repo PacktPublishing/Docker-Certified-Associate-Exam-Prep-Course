@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  frontend:
+    image: ceruleanhub/golang:frontend   
+    deploy:
+      replicas: 2
+    ports:
+      - "8080:80"
+    networks:
+     - ingress
+  backend:
+    image: ceruleanhub/golang:backend
+    deploy:
+      replicas: 2
+    networks:
+      - ingress  
+
+networks:
+  ingress:
